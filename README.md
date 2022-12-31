@@ -1,6 +1,6 @@
 ## Documentation: Orbis SDK
 
-Thisss example is built using the [Orbis SDK](https://orbis.club/developers) that developers can use to created decentralized and composable social applications / features very easily. The SDK documentation can be accessed [here](https://orbis.club/developers).
+Thissss example is built using the [Orbis SDK](https://orbis.club/developers) that developers can use to created decentralized and composable social applications / features very easily. The SDK documentation can be accessed [here](https://orbis.club/developers).
 
 We encourage you to fork this repository and start building on top of the Orbis SDK! You can also use this project to embed your own community discussion layer on your own website instead of relying on centralized alternatives.
 
