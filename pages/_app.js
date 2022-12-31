@@ -48,14 +48,14 @@ function App({ Component, pageProps }) {
   const [createChannelModalVisible, setCreateChannelModalVisible] = useState(false);
   const [updateChannelModalVisible, setUpdateChannelModalVisible] = useState(false);
 
-  /** Once user is connected we load the user groups */
+  // /** Once user is connected we load the user groups */
   useEffect(() => {
     if(!user) {
       checkUserIsConnected();
     }
   }, [user]);
 
-  /** We call this function on launch to see if the user has an existing Ceramic session. */
+  // /** We call this function on launch to see if the user has an existing Ceramic session. */
   async function checkUserIsConnected() {
     let res = await orbis.isConnected();
 
@@ -91,7 +91,7 @@ function App({ Component, pageProps }) {
 
     }
 
-    /** Save temporary data and callback function (there is probably better ways to manage this) */
+  //   /** Save temporary data and callback function (there is probably better ways to manage this) */
     if(data) {
       setTempModalData(data);
     }
@@ -99,49 +99,73 @@ function App({ Component, pageProps }) {
     tempCallback = callback;
   }
 
-  return(
+  return (
     <>
       <Head>
-          <title key="title">Orbis Group</title>
-          <meta name="description" content="Orbis is a fully decentralized social layer for the internet that any developers can use to build their own social apps or features." key="description"></meta>
-          <meta property="og:title" content="Orbis Group" key="og_title" />
-          <meta property="og:description" content="Orbis is a fully decentralized social layer for the internet that any developers can use to build their own social apps or features." key="og_description"/>
-          <meta name="twitter:site" content="@OrbisClub" />
-          <meta name="twitter:card" content="app" />
-          <link rel="icon" href="/favicon.png" />
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title key="title">Orbis Group</title>
+        <meta
+          name="description"
+          content="Orbis is a fully decentralized social layer for the internet that any developers can use to build their own social apps or features."
+          key="description"
+        ></meta>
+        <meta property="og:title" content="Orbis Group" key="og_title" />
+        <meta
+          property="og:description"
+          content="Orbis is a fully decentralized social layer for the internet that any developers can use to build their own social apps or features."
+          key="og_description"
+        />
+        <meta name="twitter:site" content="@OrbisClub" />
+        <meta name="twitter:card" content="app" />
+        <link rel="icon" href="/favicon.png" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      
       <GlobalContext.Provider value={{ user, setUser, group_id, orbis }}>
         <ModalsContext.Provider value={{ setModalVis, navigationVis }}>
-          <div className={styles.container}>
+          <div className={styles.container}> 
             {/** Show navigation on every pages */}
             <Navigation />
 
             {/** Show page content */}
             <Component {...pageProps} />
-          </div>
+           </div>
         </ModalsContext.Provider>
 
         {/** Show modals component that should be available at the global level */}
-        <ModalsContext.Provider value={{ setModalVis }}>
+         <ModalsContext.Provider value={{ setModalVis }}> 
           {/** Modal to edit an existing group */}
-          {updateGroupModalVis &&
-            <UpdateGroupModal visible={true} setVisible={() => setModalVis("update-group", false)} group={tempModalData} callback={tempCallback} />
-          }
+           {updateGroupModalVis && (
+            <UpdateGroupModal
+              visible={true}
+              setVisible={() => setModalVis("update-group", false)}
+              group={tempModalData}
+              callback={tempCallback}
+            />
+          )} 
 
           {/** Modal to create a new channel */}
-          {createChannelModalVisible &&
-            <CreateChannelModal visible={true} setVisible={() => setModalVis("create-channel", false)} group={tempModalData} callback={tempCallback} />
-          }
+           {createChannelModalVisible && (
+            <CreateChannelModal
+              visible={true}
+              setVisible={() => setModalVis("create-channel", false)}
+              group={tempModalData}
+              callback={tempCallback}
+            />
+          )} 
 
           {/** Modal to update a new channel */}
-          {updateChannelModalVisible &&
-            <UpdateChannelModal visible={true} setVisible={() => setModalVis("update-channel", false)} channel={tempModalData} callback={tempCallback} />
-          }
-
+           {updateChannelModalVisible && (
+            <UpdateChannelModal
+              visible={true}
+              setVisible={() => setModalVis("update-channel", false)}
+              channel={tempModalData}
+              callback={tempCallback}
+            />
+          )}
         </ModalsContext.Provider>
-      </GlobalContext.Provider>
+      </GlobalContext.Provider> 
+      
     </>
   );
 }

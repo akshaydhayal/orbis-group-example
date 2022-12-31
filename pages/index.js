@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { useRouter } from 'next/router'
-import Head from 'next/head'
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 /** Import Orbis SDK */
 import { Orbis } from "@orbisclub/orbis-sdk";
@@ -32,7 +32,7 @@ export default function GroupHome() {
   const router = useRouter();
   const { channel_id } = router.query;
 
-  return(
+  return (
     <>
       <div className="main-container">
         {/** Feed container */}
@@ -41,10 +41,16 @@ export default function GroupHome() {
             {/** Show channel details */}
             <div className="channel-details flex-column v-justify-content-center mbottom-15">
               <div className="flex-row">
-                <img src="/img/icons/group-home-white.png" height="15" className="mright-5" />
+                <img
+                  src="/img/icons/group-home-white.png"
+                  height="15"
+                  className="mright-5"
+                />
                 <p className="m-0 fw-400">home</p>
               </div>
-                <p className="secondary m-0 mtop-5 fs-14">Home channel for this group.</p>
+              <p className="secondary m-0 mtop-5 fs-14">
+                Home channel for this group.
+              </p>
             </div>
 
             {/** Show posts feed */}
@@ -58,5 +64,5 @@ export default function GroupHome() {
         <RightSide type="group-members" details={group_id} />
       </div>
     </>
-  )
+  );
 }

@@ -41,8 +41,13 @@ export function ConnectButton() {
     setStatus(1);
 
     /** Connect using an Ethereum provider */
-    let provider = await getProvider();
-    let res = await orbis.connect(provider);
+    let res = await orbis.connect_v2({
+      provider: window.phantom?.solana,
+      chain: "solana",
+      lit: true,
+    });
+    // let provider = await getProvider();
+    // let res = await orbis.connect(provider);
 
     /** Parse result and update status */
     switch (res.status) {
