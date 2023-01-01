@@ -10,6 +10,7 @@ import { RightSide } from "../components/RightSide";
 
 /** Import Context */
 import { GlobalContext } from "../contexts/GlobalContext";
+import { Navbar } from "../components/Navbar";
 
 /** Global component for group details */
 export default function GroupHome() {
@@ -34,6 +35,7 @@ export default function GroupHome() {
 
   return (
     <>
+      {/* <Navbar /> */}
       <div className="main-container">
         {/** Feed container */}
         <div className="main dashed-card">
@@ -54,9 +56,9 @@ export default function GroupHome() {
             </div>
 
             {/** Show posts feed */}
-            {group_id &&
+            {group_id && (
               <Feed type="feed" context={group_id} autoRefresh={true} />
-            }
+            )}
           </div>
         </div>
 

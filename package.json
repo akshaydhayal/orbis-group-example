@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@orbisclub/orbis-sdk": "^0.4.05", 
+    "@orbisclub/orbis-sdk": "^0.4.05",
+    "@vocdoni/sdk": "^0.0.1-alpha",
     "@walletconnect/web3-provider": "^1.7.8",
     "arweave": "^1.11.4",
     "ethereum-blockies-base64": "^1.0.2",

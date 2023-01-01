@@ -76,7 +76,7 @@ export function GroupDetails() {
         </div>
 
       :
-        <div className="group-details">
+        <div  className="group-details">
           <div className="group-details-top">
             {group && group.content &&
               <>
